@@ -8,5 +8,9 @@ module.exports = {
       },
     },
   },
+  daisyui: {
+    themes: ["cupcake"],
+    darkTheme: "cupcake",
+  },
   plugins: [require("daisyui")],
 };

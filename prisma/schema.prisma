@@ -14,13 +14,13 @@ model Rdv {
   id             Int      @id @default(autoincrement())
   firstName      String
   lastName       String
-  email          String
-  phone          String
-  phone2         String? @default("Not provided")
+  email          String   @default("Not provided")
+  phone          String   @default("Not provided")
+  phone2         String?  @default("Not provided")
   dateOfBirth    String
   motif          String
- alreadyPatient Boolean?  @default(false)
-  doctor         String? @default("Not provided")
+  alreadyPatient Boolean? @default(false)
+  doctor         String?  @default("Not provided")
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }

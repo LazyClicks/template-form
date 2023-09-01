@@ -1,4 +1,3 @@
-
 import { component$ } from "@builder.io/qwik";
 import {
   Form,
@@ -17,9 +16,7 @@ export const useSendRDV = routeAction$(
       data,
     });
     return rdv;
-    
-  }
-  ,
+  },
   zod$({
     firstName: z.string(),
     lastName: z.string(),
@@ -28,7 +25,7 @@ export const useSendRDV = routeAction$(
     phone2: z.string(),
     dateOfBirth: z.string(),
     motif: z.string(),
-    alreadyPatient: z.preprocess((value) => value === 'on', z.boolean()),
+    alreadyPatient: z.preprocess((value) => value === "on", z.boolean()),
     doctor: z.string(),
   })
 );
