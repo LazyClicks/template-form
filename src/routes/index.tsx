@@ -1,5 +1,4 @@
-// @ts-nocheck
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { component$ } from "@builder.io/qwik";
 import {
   Form,
@@ -12,25 +11,26 @@ import { PrismaClient } from "@prisma/client";
 
 export const useSendRDV = routeAction$(
   async (data) => {
+    console.log(data);
     const prisma = new PrismaClient();
     const rdv = await prisma.rdv.create({
       data,
     });
     return rdv;
-    console.log(rdv);
+    
   }
-  // ,
-  // zod$({
-  //   firstName: z.string(),
-  //   lastName: z.string(),
-  //   email: z.string().email(),
-  //   phone: z.string(),
-  //   phone2: z.string(),
-  //   dateOfBirth: z.string(),
-  //   motif: z.string(),
-  //   alreadyPatient: z.optional(z.string()).default("no"),
-  //   doctor: z.string(),
-  // })
+  ,
+  zod$({
+    firstName: z.string(),
+    lastName: z.string(),
+    email: z.string().email(),
+    phone: z.string(),
+    phone2: z.string(),
+    dateOfBirth: z.string(),
+    motif: z.string(),
+    alreadyPatient: z.preprocess((value) => value === 'on', z.boolean()),
+    doctor: z.string(),
+  })
 );
 export default component$(() => {
   const sendRDVAction = useSendRDV();

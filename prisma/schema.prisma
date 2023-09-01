@@ -16,11 +16,11 @@ model Rdv {
   lastName       String
   email          String
   phone          String
-  phone2         String?
+  phone2         String? @default("Not provided")
   dateOfBirth    String
   motif          String
-  alreadyPatient String?  @default("false")
-  doctor         String?
+ alreadyPatient Boolean?  @default(false)
+  doctor         String? @default("Not provided")
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }
